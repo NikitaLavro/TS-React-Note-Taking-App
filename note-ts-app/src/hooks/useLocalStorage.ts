@@ -13,4 +13,5 @@ export function useLocalStorage<T>(key: string, initialValue: T | (() => T)) {
       return JSON.parse(jsonValue);
     }
   });
+  return [value, setValue] as [T, typeof setValue];
 }
