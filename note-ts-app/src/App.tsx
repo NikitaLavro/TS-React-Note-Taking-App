@@ -1,4 +1,4 @@
-//Bootstrap
+ß / Bootstrap;
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
 
@@ -10,6 +10,16 @@ import NewNote from "./components/NewNote";
 
 export interface Note extends NoteData {
   id: string;
+}
+
+export interface RawNote {
+  id: string;
+}
+
+export interface RawNoteData {
+  title: string;
+  markdown: string;
+  tagIds: string[];
 }
 
 export interface NoteData {
@@ -24,6 +34,8 @@ export interface Tag {
 }
 
 function App() {
+  const [notes, setNotes] = useLocalStorage<RawNote[]>("NOTES", []);
+  const [tags, setTags] = useLocalStorage<Tag[]>("TAGS", []);
   return (
     <Container>
       <Routes>
