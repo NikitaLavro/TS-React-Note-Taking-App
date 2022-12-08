@@ -8,6 +8,21 @@ import { Routes, Route, Navigate } from "react-router-dom";
 //Components
 import NewNote from "./components/NewNote";
 
+export interface Note extends NoteData {
+  id: string;
+}
+
+export interface NoteData {
+  title: string;
+  markdown: string;
+  tags: Tag[];
+}
+
+export interface Tag {
+  id: string;
+  label: string;
+}
+
 function App() {
   return (
     <Container>
