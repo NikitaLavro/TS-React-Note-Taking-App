@@ -9,6 +9,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 //Components
 import NewNote from "./components/NewNote";
+import NoteList from "./components/NoteList";
 
 //Hooks
 import { useLocalStorage } from "./hooks/useLocalStorage";
@@ -69,7 +70,7 @@ function App() {
   return (
     <Container>
       <Routes>
-        <Route path="/" element={<h1>Home</h1>} />
+        <Route path="/" element={<NoteList />} />
         <Route
           path="/new"
           element={
