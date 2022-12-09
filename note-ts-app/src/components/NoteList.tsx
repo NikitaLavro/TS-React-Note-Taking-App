@@ -82,7 +82,7 @@ const NoteList = ({ availableTags, notes }: NoteListProps) => {
         </Row>
       </Form>
       <Row xs={1} sm={2} lg={3} xl={4} className="g-3">
-        {filetedNotes.map((note) => (
+        {filteredNotes.map((note) => (
           <Col key={note.id}>
             <NoteCard />
           </Col>
