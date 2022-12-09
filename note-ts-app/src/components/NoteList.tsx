@@ -13,7 +13,7 @@ import ReactSelect from "react-select/creatable";
 import { Tag, Note } from "../App";
 
 //Components
-import NoteCard from "./NoteCard";
+import NoteCard from "./NoteCard/NoteCard";
 
 interface NoteListProps {
   availableTags: Tag[];
