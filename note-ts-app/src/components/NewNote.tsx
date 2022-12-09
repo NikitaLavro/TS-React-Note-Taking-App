@@ -4,17 +4,23 @@ import React from "react";
 import NoteForm from "./NoteForm";
 
 //TS interface
-import { NoteData } from "../App";
+import { NoteData, Tag } from "../App";
 
 interface NewNoteProps {
   onSubmit: (data: NoteData) => void;
+  onAddTag: (tag: Tag) => void;
+  availableTags: Tag[];
 }
 
-const NewNote = ({ onSubmit }: NewNoteProps) => {
+const NewNote = ({ onSubmit, onAddTag, availableTags }: NewNoteProps) => {
   return (
     <>
       <h1 className="mb-4">New Note</h1>
-      <NoteForm onSubmit={onSubmit} />
+      <NoteForm
+        onSubmit={onSubmit}
+        onAddTag={onAddTag}
+        availableTags={availableTags}
+      />
     </>
   );
 };
