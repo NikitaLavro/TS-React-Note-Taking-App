@@ -12,8 +12,13 @@ import ReactSelect from "react-select/creatable";
 //TS interface
 import { Tag } from "../App";
 
-const NoteList = ({ availableTags }) => {
+interface NoteListProps {
+  availableTags: Tag[];
+}
+
+const NoteList = ({ availableTags }: NoteListProps) => {
   const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
+  const [title, setTitle] = useState("");
   return (
     <>
       <Row>
@@ -34,7 +39,13 @@ const NoteList = ({ availableTags }) => {
           <Col>
             <Form.Group controlId="title">
               <Form.Label>Title</Form.Label>
-              <Form.Control type="text"></Form.Control>
+              <Form.Control
+                type="text"
+                value={title}
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                }}
+              ></Form.Control>
             </Form.Group>
           </Col>
           <Col>
