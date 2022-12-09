@@ -12,6 +12,9 @@ import ReactSelect from "react-select/creatable";
 //TS interface
 import { Tag, Note } from "../App";
 
+//Components
+import NoteCard from "./NoteCard";
+
 interface NoteListProps {
   availableTags: Tag[];
   notes: Note[];
@@ -25,7 +28,11 @@ const NoteList = ({ availableTags, notes }: NoteListProps) => {
     return notes.filter((note) => {
       return (
         title === "" ||
-        note.title.toLowerCase().includes(title.toLowerCase()) && (selectedTags.length === 0 || selectedTags.every(tag => note.tags.some(noteTag => noteTag.id === tag.id.))) 
+        (note.title.toLowerCase().includes(title.toLowerCase()) &&
+          (selectedTags.length === 0 ||
+            selectedTags.every((tag) =>
+              note.tags.some((noteTag) => noteTag.id === tag.id)
+            )))
       );
     });
   }, [title, selectedTags, notes]);
@@ -84,7 +91,7 @@ const NoteList = ({ availableTags, notes }: NoteListProps) => {
       <Row xs={1} sm={2} lg={3} xl={4} className="g-3">
         {filteredNotes.map((note) => (
           <Col key={note.id}>
-            <NoteCard />
+            <NoteCard id={note.id} title={note.title} tags={note.tags} />
           </Col>
         ))}
       </Row>

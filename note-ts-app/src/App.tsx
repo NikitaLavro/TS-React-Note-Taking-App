@@ -17,6 +17,12 @@ import { useLocalStorage } from "./hooks/useLocalStorage";
 //uuID
 import { v4 as uuidV4 } from "uuid";
 
+export interface SimplifiedNote {
+  tags: Tag[];
+  title: string;
+  id: string;
+}
+
 export interface Note extends NoteData {
   id: string;
 }
@@ -70,7 +76,10 @@ function App() {
   return (
     <Container>
       <Routes>
-        <Route path="/" element={<NoteList availableTags={tags} />} />
+        <Route
+          path="/"
+          element={<NoteList availableTags={tags} notes={notesWithTags} />}
+        />
         <Route
           path="/new"
           element={
