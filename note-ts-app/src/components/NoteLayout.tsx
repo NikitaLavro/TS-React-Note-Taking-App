@@ -1,5 +1,10 @@
 import React from "react";
-import { useParams, Navigate, Outlet } from "react-router-dom";
+import {
+  useParams,
+  Navigate,
+  Outlet,
+  useOutletContext,
+} from "react-router-dom";
 
 //TS Interface
 import { Note } from "../App";
@@ -8,7 +13,7 @@ interface NoteLayoutProps {
   notes: Note[];
 }
 
-const NoteLayout = ({ notes }: NoteLayoutProps) => {
+export const NoteLayout = ({ notes }: NoteLayoutProps) => {
   const { id } = useParams();
   const note = notes.find((n) => n.id === id);
   console.log(note);
@@ -18,4 +23,6 @@ const NoteLayout = ({ notes }: NoteLayoutProps) => {
   return <Outlet context={note} />;
 };
 
-export default NoteLayout;
+export function useNote() {
+  return useOutletContext<Note>();
+}
