@@ -51,7 +51,11 @@ const NoteForm = ({
           <Col>
             <Form.Group controlId="title">
               <Form.Label>Title</Form.Label>
-              <Form.Control ref={titleRef} required></Form.Control>
+              <Form.Control
+                ref={titleRef}
+                required
+                defaultValue={title}
+              ></Form.Control>
             </Form.Group>
           </Col>
           <Col>
@@ -88,6 +92,7 @@ const NoteForm = ({
             required
             as="textarea"
             rows={15}
+            defaultValue={markdown}
           ></Form.Control>
         </Form.Group>
         <Stack direction="horizontal" gap={2} className="justify-content-end">
