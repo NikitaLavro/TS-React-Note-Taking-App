@@ -9,8 +9,16 @@ import { Link } from "react-router-dom";
 //React Markdown
 import ReactMarkdown from "react-markdown";
 
-export function Note() {
+//Router
+import { useNavigate } from "react-router-dom";
+
+interface NoteProps {
+  onDelete: (id: string) => void;
+}
+
+export function Note({ onDelete }: NoteProps) {
   const note = useNote();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -33,7 +41,15 @@ export function Note() {
               <Button variant="primary">Edit</Button>
             </Link>
             <Link to={`/`}>
-              <Button variant="outline-danger">Delete</Button>
+              <Button
+                variant="outline-danger"
+                onClick={() => {
+                  onDelete(note.id);
+                  navigate("/");
+                }}
+              >
+                Delete
+              </Button>
             </Link>
             <Link to={`..`}>
               <Button variant="outline-secondary">Back</Button>
