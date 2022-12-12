@@ -6,6 +6,9 @@ import { Row, Col, Badge, Stack, Button } from "react-bootstrap";
 //Routing
 import { Link } from "react-router-dom";
 
+//React Markdown
+import ReactMarkdown from "react-markdown";
+
 export function Note() {
   const note = useNote();
 
@@ -38,6 +41,7 @@ export function Note() {
           </Stack>
         </Col>
       </Row>
+      <ReactMarkdown>{note.markdown}</ReactMarkdown>
     </>
   );
 }
