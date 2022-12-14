@@ -25,6 +25,8 @@ const NoteList = ({ availableTags, notes }: NoteListProps) => {
   const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
   const [title, setTitle] = useState("");
 
+  const [editTagsModalIsOpen, setEditTagsModalIsOpen] = useState(false);
+
   const filteredNotes = useMemo(() => {
     return notes.filter((note) => {
       return (
@@ -48,7 +50,12 @@ const NoteList = ({ availableTags, notes }: NoteListProps) => {
             <Link to={"/new"}>
               <Button variant="primary">Create</Button>
             </Link>
-            <Button variant="outline-secondary">Edit Tags</Button>
+            <Button
+              variant="outline-secondary"
+              onClick={() => setEditTagsModalIsOpen(true)}
+            >
+              Edit Tags
+            </Button>
           </Stack>
         </Col>
       </Row>
@@ -96,7 +103,11 @@ const NoteList = ({ availableTags, notes }: NoteListProps) => {
           </Col>
         ))}
       </Row>
-      <EditTagsModal availableTags={availableTags} show={} handleClose={} />
+      <EditTagsModal
+        availableTags={availableTags}
+        show={editTagsModalIsOpen}
+        handleClose={() => setEditTagsModalIsOpen(false)}
+      />
     </>
   );
 };
