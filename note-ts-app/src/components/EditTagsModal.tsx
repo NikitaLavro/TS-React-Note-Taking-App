@@ -8,9 +8,15 @@ import { Tag, Note } from "../App";
 
 interface EditTagsModalProps {
   availableTags: Tag[];
+  show: boolean;
+  handleClose: () => void;
 }
 
-const EditTagsModal = ({ availableTags }: EditTagsModalProps) => {
+const EditTagsModal = ({
+  availableTags,
+  handleClose,
+  show,
+}: EditTagsModalProps) => {
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>Edit Tags</Modal.Header>

@@ -14,6 +14,7 @@ import { Tag, Note } from "../App";
 
 //Components
 import NoteCard from "./NoteCard/NoteCard";
+import EditTagsModal from "./EditTagsModal";
 
 interface NoteListProps {
   availableTags: Tag[];
@@ -95,6 +96,7 @@ const NoteList = ({ availableTags, notes }: NoteListProps) => {
           </Col>
         ))}
       </Row>
+      <EditTagsModal availableTags={availableTags} show={} handleClose={} />
     </>
   );
 };
