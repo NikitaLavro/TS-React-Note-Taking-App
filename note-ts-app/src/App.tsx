@@ -94,6 +94,15 @@ function App() {
     });
   };
 
+  const updateTag =(id: string, label:string){}
+
+  const deleteTag =(id: string){
+    setTags(prevTags => {
+      return prevTags.filter(tag => tag.id !==id)
+    })
+  }
+
+
   return (
     <Container>
       <Routes>
