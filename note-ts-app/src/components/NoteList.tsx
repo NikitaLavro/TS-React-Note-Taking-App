@@ -111,6 +111,8 @@ const NoteList = ({
         ))}
       </Row>
       <EditTagsModal
+        onUpdateTag={onUpdateTag}
+        onDeleteTag={onDeleteTag}
         availableTags={availableTags}
         show={editTagsModalIsOpen}
         handleClose={() => setEditTagsModalIsOpen(false)}

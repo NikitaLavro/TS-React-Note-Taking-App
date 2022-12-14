@@ -10,6 +10,8 @@ interface EditTagsModalProps {
   availableTags: Tag[];
   show: boolean;
   handleClose: () => void;
+  onDeleteTag: (id: string) => void;
+  onUpdateTag: (id: string, label: string) => void;
 }
 
 const EditTagsModal = ({
